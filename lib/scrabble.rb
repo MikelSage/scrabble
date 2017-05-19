@@ -1,7 +1,14 @@
 class Scrabble
 
   def score(word)
-    1
+    return 0 unless valid_word?(word)
+    word.chars.sum do |char|
+      point_values[char.upcase]
+    end
+  end
+
+  def valid_word?(word)
+    !(word == nil || word == '')
   end
 
   def point_values
