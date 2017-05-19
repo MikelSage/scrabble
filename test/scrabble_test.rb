@@ -20,6 +20,12 @@ class ScrabbleTest < Minitest::Test
     assert_equal 32, Scrabble.new.score('QuEtZAlCOAtL')
   end
 
+  def test_knows_if_valid_word
+    assert Scrabble.new.valid_word?('abscond')
+    refute Scrabble.new.valid_word?('')
+    refute Scrabble.new.valid_word?(nil)
+  end
+
   def test_score_is_0_for_nil_or_empty_string
     assert_equal 0, Scrabble.new.score('')
     assert_equal 0, Scrabble.new.score(nil)
